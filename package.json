@@ -1,0 +1,19 @@
+{
+  "name": "web3-1.0-ws",
+  "version": "1.0.0",
+  "description": "web3.js 1.0 ws",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Eric-GreenComb/web3-1.0-ws.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Eric-GreenComb/web3-1.0-ws/issues"
+  },
+  "homepage": "https://github.com/Eric-GreenComb/web3-1.0-ws#readme"
+}
