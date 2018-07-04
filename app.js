@@ -14,6 +14,17 @@ web3.eth.net.getId()
     .then(console.log);
 
 var abi = [{
+    "constant": false,
+    "inputs": [{
+        "name": "_channel",
+        "type": "uint256"
+    }],
+    "name": "setChannel",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+}, {
     "constant": true,
     "inputs": [],
     "name": "getInfo",
@@ -45,6 +56,17 @@ var abi = [{
     "stateMutability": "nonpayable",
     "type": "function"
 }, {
+    "constant": true,
+    "inputs": [],
+    "name": "getChannel",
+    "outputs": [{
+        "name": "",
+        "type": "uint256"
+    }],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+}, {
     "anonymous": false,
     "inputs": [{
         "indexed": true,
@@ -63,7 +85,7 @@ var abi = [{
     "type": "event"
 }];
 
-var address = '0x5c486d08760ac3a97936e648d61a9b164bcb1c1e';
+var address = '0xd1ae8046c80a9ec0f9fa76ebcb0fb2ae89bc666b';
 var infoContract = new web3.eth.Contract(abi, address);
 
 infoContract.methods.getInfo().call(function (error, result) {
@@ -96,25 +118,7 @@ var event = infoContract.events.EventSetInfo({
     }, function (error, event) { /*console.log("result:\n"+JSON.stringify(event)); */ })
     .on('data', function (event) {
         console.log("start event"); // same results as the optional callback above
-        console.log(event); // same results as the optional callback above
-    })
-    .on('changed', function (event) {
-        console.log("event changed"); // same res
-        // remove event from local database
-    })
-    .on('error', console.error);
-
-// 设置channel，选topics都不起过滤作用，监听全部
-var event_back = infoContract.events.EventSetInfo({
-        channel: '20180705'
-    }, {
-        fromBlock: 0,
-        toBlock: 'latest',
-        topics: '0x000000000000000000000000000000000000000000000000000000000133eee1'
-    }, function (error, event) { /*console.log("result:\n"+JSON.stringify(event)); */ })
-    .on('data', function (event) {
-        console.log("start event back"); // same results as the optional callback above
-        console.log(event); // same results as the optional callback above
+        console.log(event.returnValues); // same results as the optional callback above
     })
     .on('changed', function (event) {
         console.log("event changed"); // same res

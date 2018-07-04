@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/Eric-GreenComb/web3-1.0-ws/issues"
   },
-  "homepage": "https://github.com/Eric-GreenComb/web3-1.0-ws#readme"
+  "homepage": "https://github.com/Eric-GreenComb/web3-1.0-ws#readme",
+  "dependencies": {
+    "web3": "^1.0.0-beta.34"
+  }
 }
